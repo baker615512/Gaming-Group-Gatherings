@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     @gamer = Gamer.find_by(username: params[:gamer][:username])
     if @gamer && @gamer.authenticate(params[:gamer][:password])
       session[:gamer_id] = @gamer.id
-      redirect_to '/gamer/:id'
+      redirect_to '/gamers/:id'
     else
       redirect_to login_path
     end

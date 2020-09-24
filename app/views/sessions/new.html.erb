@@ -1,6 +1,6 @@
 <h1>Login</h1>
 
-<%= form_for @gamer, url: '/login' do |f| %>
+<%= form_for :gamer, url: '/login' do |f| %>
     <%= f.label :username %>
     <%= f.text_field :username %>
     <%= f.label :password %>
