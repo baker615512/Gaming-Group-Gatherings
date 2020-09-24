@@ -11,7 +11,8 @@ class SessionsController < ApplicationController
       session[:gamer_id] = @gamer.id
       redirect_to '/gamer/:id'
     else
-      render :new
+      redirect_to login_path
+    end
   end
 
   def destroy
