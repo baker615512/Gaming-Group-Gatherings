@@ -4,6 +4,10 @@
     <%= f.label :game_title %>
     <%= f.text_field :game_title %>
     <%= f.label :game_category %>
-    <%= f.select :game_category, [['Board Game', 'Board Game'], ['Card Game', 'Card Game'], ['RPG', 'RPG']], :include_blank => true %>
+    <%= f.select :game_category, [
+        ['Board Game', 'Board Game'], 
+        ['Card Game', 'Card Game'], 
+        ['RPG', 'RPG']], 
+        :include_blank => true %>
     <%= f.submit 'Create Group' %>
 <% end %>
