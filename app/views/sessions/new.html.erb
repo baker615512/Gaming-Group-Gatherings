@@ -1,2 +1,9 @@
 <h1>Login</h1>
 
+<%= form_for @gamer, url: '/login' do |f| %>
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+    <%= f.submit 'Login' %>
+<% end %>
