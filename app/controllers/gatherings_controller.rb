@@ -14,6 +14,10 @@ class GatheringsController < ApplicationController
         redirect_to gathering_path(@gathering)
     end
 
+    def show
+        @gathering = Gathering.find_by_id(params[:id])
+    end
+
     private
 
     def gathering_params
