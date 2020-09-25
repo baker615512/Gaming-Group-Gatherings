@@ -9,15 +9,15 @@
         <%=f.label :group_id%>
         <%= f.collection_select :group_id, Group.all, :id, :game_title, include_blank: true %>
         <h3>Or Create a New Group</h3>
-        <%= f.fields_for :group, group.new do |g| %>
+        <%= f.fields_for :group, Group.new do |g| %>
             <%= g.label :game_title %>
-            <%= g.text_field :game_title %>
+            <%= g.text_field :game_title %><br>
             <%= g.label :game_category %>
             <%= g.select :game_category, [
                 ['Board Game', 'Board Game'], 
                 ['Card Game', 'Card Game'], 
                 ['RPG', 'RPG']], 
-                :include_blank => true %>
+                :include_blank => true %><br>
             <% end %> 
     <% end %>
     <%= f.label :game_cafe, 'Which Cafe?' %>
@@ -26,7 +26,7 @@
         ['Emerald Tavern', 'Emerald Tavern'], 
         ['Dragons Lair', 'Dragons Lair'],
         ['Gaming Goat', 'Gaming Goat']], 
-        :include_blank => true %>
+        :include_blank => true %><br>
     <%= f.label :day_of_week, 'Which Day?' %>
     <%= f.select :day_of_week, [
         ['Sunday', 'Sunday'], 
@@ -36,8 +36,8 @@
         ['Thursday', 'Thursday'],
         ['Friday', 'Friday'],
         ['Saturday', 'Saturday']], 
-        :include_blank => true %>
+        :include_blank => true %><br>
     <%= f.label :group_id, 'Which Game?' %>
-    <%= f.collection_select :group_id, Group.all, :id, :game_title, :include_blank => true %>
+    <%= f.collection_select :group_id, Group.all, :id, :game_title, :include_blank => true %><br>
     <%= f.submit 'Create Gathering' %>
 <% end %>
