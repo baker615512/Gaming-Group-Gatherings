@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   resources :gatherings
-  resources :groups
+  resources :groups do
+    resources :gatherings
+  end
   resources :gamers
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
