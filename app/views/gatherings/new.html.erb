@@ -18,5 +18,7 @@
         ['Friday', 'Friday'],
         ['Saturday', 'Saturday']], 
         :include_blank => true %>
+    <%= f.label :group_id, 'Which Game?' %>
+    <%= f.collection_select :group_id, Group.all, :id, :game_title %>
     <%= f.submit 'Create Gathering' %>
 <% end %>
