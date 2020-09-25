@@ -1,0 +1,8 @@
+<h1>All the Gatherings</h1>
+<li>
+<% @gathering.each do |g| %>
+    <%= g.game_cafe %>
+    <%= g.day_of_week %>
+    <%= g.group_id.game_title %>
+<% end %>
+</li>

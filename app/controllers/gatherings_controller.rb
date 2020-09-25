@@ -1,5 +1,9 @@
 class GatheringsController < ApplicationController
 
+    def index
+        @gatherings = Gathering.all
+    end
+    
     def new
         @gathering = Gathering.new
     end
@@ -7,5 +11,5 @@ class GatheringsController < ApplicationController
     def create
 
     end
-    
+
 end
