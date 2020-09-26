@@ -1,0 +1,7 @@
+<h1>List of Current Game Groups</h1>
+<ul>
+<% @groups.each do |g| %>
+    <li><%= g.game_title %><br>
+    <%= g.game_category %></li>
+<% end %>
+</ul>
