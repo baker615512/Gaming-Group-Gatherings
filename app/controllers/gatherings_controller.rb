@@ -21,7 +21,7 @@ class GatheringsController < ApplicationController
     private
 
     def gathering_params
-        params.require(:gathering).permit(:game_cafe, :day_of_week,
+        params.require(:gathering).permit(:game_cafe, :day_of_week, :gamer_id,
         :group_id, group_attributes: [:game_title, :game_category])
     end
 end
