@@ -1,8 +1,6 @@
 <h1>All the Gatherings</h1>
 <ul>
 <% @gatherings.each do |g| %>
-    <li><%= g.game_cafe %><br>
-    <%= g.day_of_week %><br>
-    <%= g.group_id.game_title %></li>
+    <li><%= g.group.game_title %> meets at <%= g.game_cafe %> on <%= g.day_of_week.pluralize %>.</li>
 <% end %>
 </ul>
