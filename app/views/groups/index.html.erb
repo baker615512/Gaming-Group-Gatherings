@@ -1,7 +1,7 @@
 <h1>List of Current Game Groups</h1>
 <ul>
 <% @groups.each do |g| %>
-    <li><%= g.game_title %><br>
-    <%= g.game_category %></li>
+    <li><h3><%= g.game_title %> - 
+    <%= g.game_category %></h3></li>
 <% end %>
 </ul>
