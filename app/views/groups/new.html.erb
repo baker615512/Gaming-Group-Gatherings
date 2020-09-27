@@ -1,5 +1,7 @@
 <h1>Create a new gaming group</h1>
 
+<%= render 'layouts/errors', locals: (object: @group) %>
+
 <%= form_for(@group) do |f| %>
     <%= f.label :game_title %>
     <%= f.text_field :game_title %>

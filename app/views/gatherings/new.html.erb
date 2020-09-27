@@ -1,5 +1,7 @@
 <h1>Create a New Gathering</h1>
 
+<%= render 'layouts/errors', locals: (object: @gathering) %>
+
 <%= form_for(@gathering) do |f| %>
     <%if @group%>
         <h2>New Gathering for <%=@group.game_title%></h2>
