@@ -19,4 +19,17 @@ class SessionsController < ApplicationController
     session.clear
     redirect_to root_path
   end
+
+  def omniauth
+    @gamer = Gamer.from_omniauth(auth)
+    @gamer.save
+    session[:gamer_id] = @gamer.id
+    redirect_to gamer_path(@gamer)
+  end
+
+  private
+
+  def auth
+    request.env['omniauth.auth']
+  end
 end
