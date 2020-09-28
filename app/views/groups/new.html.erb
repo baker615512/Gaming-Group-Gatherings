@@ -1,6 +1,6 @@
 <h1>Create a new gaming group</h1>
 
-<%= render partial: 'layouts/errors', locals: (object: @group) %>
+<%= render partial: 'layouts/errors', locals: {object: @group} %>
 
 <%= form_for(@group) do |f| %>
     <%= f.label :game_title %>

@@ -1,6 +1,6 @@
 <h1>Register</h1>
 
-<%= render partial: 'layouts/errors', locals: (object: @gamer) %>
+<%= render partial: 'layouts/errors', locals: {object: @gamer} %>
 
 <%= form_for(@gamer) do |f| %>
     <%= f.label :username %>

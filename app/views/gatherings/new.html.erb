@@ -1,6 +1,6 @@
 <h1>Create a New Gathering</h1>
 
-<%= render partial: 'layouts/errors', locals: (object: @gathering) %>
+<%= render partial: 'layouts/errors', locals: {object: @gathering} %>
 
 <%= form_for(@gathering) do |f| %>
     <%if @group%>
