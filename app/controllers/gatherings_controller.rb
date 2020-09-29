@@ -28,6 +28,11 @@ class GatheringsController < ApplicationController
         redirect_to gathering_path(@gathering)
     end
 
+    def destroy
+        Gathering.find_by_id(params[:id]).destroy
+        redirect_to gatherings_path
+    end
+
     private
 
     def gathering_params
