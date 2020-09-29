@@ -21,6 +21,16 @@ class GroupsController < ApplicationController
         @group = Group.find_by_id(params[:id])
     end
 
+    def edit
+        @group = Group.find_by_id(params[:id])
+    end
+
+    def update
+        @group = Group.find_by_id(params[:id])
+        @group.update(game_title: params[:group][:game_title], game_category: params[:group][:game_category])
+        redirect_to group_path(@group)
+    end
+
     private
 
     def group_params
