@@ -3,8 +3,8 @@
 <%= render partial: 'layouts/errors', locals: {object: @gathering} %>
 
 <%= form_for(@gathering) do |f| %>
-    <h2>Edit Gathering for <%=@group.game_title%></h2>
-    <%=f.hidden_field :group_id, value: @group.id%>
+    <h2>Edit Gathering for <%=@gathering.group.game_title%></h2>
+    <%=f.hidden_field :gathering_group_id, value: @gathering.group.id%>
     <br><br>
     <%= f.label :game_cafe, 'Which Cafe?' %>
     <%= f.select :game_cafe, [

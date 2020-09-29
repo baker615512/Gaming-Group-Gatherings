@@ -25,7 +25,7 @@ class GatheringsController < ApplicationController
     def update
         @gathering = Gathering.find_by_id(params[:id])
         @gathering.update(game_cafe: params[:gathering][:game_cafe], day_of_week: params[:gathering][:day_of_week])
-        redirect_to group_path(@group)
+        redirect_to gathering_path(@gathering)
     end
 
     private
