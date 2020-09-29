@@ -11,6 +11,7 @@
         <%=f.label :group_id%>
         <%= f.collection_select :group_id, Group.all, :id, :game_title, include_blank: true %>
     <% end %>
+    <br><br>
     <%= f.label :game_cafe, 'Which Cafe?' %>
     <%= f.select :game_cafe, [
         ['Vigilante', 'Vigilante'], 
