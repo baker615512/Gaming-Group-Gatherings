@@ -1,4 +1,5 @@
 class GatheringsController < ApplicationController
+    before_action :require_login
 
     def index
         @gatherings = Gathering.all
@@ -38,5 +39,9 @@ class GatheringsController < ApplicationController
     def gathering_params
         params.require(:gathering).permit(:game_cafe, :day_of_week, :gamer_id,
         :group_id, group_attributes: [:game_title, :game_category])
+    end
+
+    def require_login
+        return head(:forbidden) unless session.include? :gamer_id
     end
 end

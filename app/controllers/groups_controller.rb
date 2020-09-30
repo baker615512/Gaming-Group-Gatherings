@@ -1,4 +1,5 @@
 class GroupsController < ApplicationController
+    before_action :require_login
 
     def index
         @groups = Group.all
@@ -40,5 +41,9 @@ class GroupsController < ApplicationController
 
     def group_params
         params.require(:group).permit(:game_title, :game_category)
+    end
+
+    def require_login
+        return head(:forbidden) unless session.include? :gamer_id
     end
 end
