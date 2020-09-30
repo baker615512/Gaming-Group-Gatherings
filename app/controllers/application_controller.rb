@@ -10,9 +10,9 @@ class ApplicationController < ActionController::Base
         !!current_user
     end
   
-    def redirect_if_not_logged_in
+    def require_login
         if !logged_in?
-            redirect '/'
+            redirect_to root_path
         end
     end
 end

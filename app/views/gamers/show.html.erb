@@ -1,4 +1,10 @@
-<h1>Show page for <%= @gamer.username %></h1>
+<h1>List of my current gaming group gatherings:</h1>
+
+<ol>
+<% @gamer.gatherings.each do |g| %>
+    <li><%= g.group.game_title %> meets at <%= g.game_cafe %> on <%= g.day_of_week %>.</li>
+<% end %>
+</ol>
 
 <%= link_to 'Create New Gaming Group', new_group_path %>
 <br><br>
