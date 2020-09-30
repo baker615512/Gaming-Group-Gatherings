@@ -19,15 +19,15 @@ class GroupsController < ApplicationController
     end
 
     def show
-        @group = Group.find_by_id(params[:id])
+        set_group
     end
 
     def edit
-        @group = Group.find_by_id(params[:id])
+        set_group
     end
 
     def update
-        @group = Group.find_by_id(params[:id])
+        set_group
         @group.update(game_title: params[:group][:game_title], game_category: params[:group][:game_category])
         redirect_to group_path(@group)
     end
@@ -45,5 +45,9 @@ class GroupsController < ApplicationController
 
     def require_login
         return head(:forbidden) unless session.include? :gamer_id
+    end
+
+    def set_group
+        @group = Group.find_by_id(params[:id])
     end
 end

@@ -16,15 +16,15 @@ class GatheringsController < ApplicationController
     end
 
     def show
-        @gathering = Gathering.find_by_id(params[:id])
+        set_gathering
     end
 
     def edit
-        @gathering = Gathering.find_by_id(params[:id])
+        set_gathering
     end
 
     def update
-        @gathering = Gathering.find_by_id(params[:id])
+        set_gathering
         @gathering.update(game_cafe: params[:gathering][:game_cafe], day_of_week: params[:gathering][:day_of_week])
         redirect_to gathering_path(@gathering)
     end
@@ -43,5 +43,9 @@ class GatheringsController < ApplicationController
 
     def require_login
         return head(:forbidden) unless session.include? :gamer_id
+    end
+
+    def set_gathering
+        @gathering = Gathering.find_by_id(params[:id])
     end
 end
