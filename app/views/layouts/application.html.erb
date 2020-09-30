@@ -10,7 +10,10 @@
   </head>
 
   <body>
+  <%= link_to 'Home', root_path %>
+ 
   <%= link_to 'Logout', logout_path, method: 'delete' %>
+
     <%= yield %>
   </body>
 </html>
