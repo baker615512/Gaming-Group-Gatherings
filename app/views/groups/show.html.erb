@@ -2,6 +2,8 @@
 <h3><%= @group.game_category %></h3>
 <%= link_to "Edit Group", edit_group_path(@group) %>
 <br><br>
+<%= link_to "View Current Gatherings", group_gatherings_path(@group) %>
+<br><br>
 <%= link_to "Create Gathering", new_group_gathering_path(@group) %>
 <br><br>
 <%= button_to "Delete Group", group_path(@group), method: :delete %>
