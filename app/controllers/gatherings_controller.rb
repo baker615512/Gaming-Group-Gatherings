@@ -2,7 +2,11 @@ class GatheringsController < ApplicationController
     before_action :require_login
 
     def index
-        @gatherings = Gathering.all
+        if params[:group_id]
+            @gatherings = Group.find_by_id (params[:group_id])
+        else
+            @gatherings = Gathering.all
+        end
     end
 
     def new
