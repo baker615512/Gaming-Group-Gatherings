@@ -28,7 +28,7 @@ class GroupsController < ApplicationController
 
     def update
         set_group
-        @group.update(game_title: params[:group][:game_title], game_category: params[:group][:game_category])
+        @group.update(group_params)
         redirect_to group_path(@group)
     end
 
@@ -49,5 +49,6 @@ class GroupsController < ApplicationController
 
     def set_group
         @group = Group.find_by_id(params[:id])
+        return head(:not_found) unless @group
     end
 end

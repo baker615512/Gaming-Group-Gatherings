@@ -15,8 +15,12 @@ class GatheringsController < ApplicationController
     end
 
     def create
-        @gathering = current_user.gatherings.create(gathering_params)
-        redirect_to gathering_path(@gathering)
+        @gathering = current_user.gatherings.new(gathering_params)
+        if @gathering.save
+            redirect_to gathering_path(@gathering)
+        else
+            render :new
+        end
     end
 
     def show
@@ -29,12 +33,16 @@ class GatheringsController < ApplicationController
 
     def update
         set_gathering
-        @gathering.update(game_cafe: params[:gathering][:game_cafe], day_of_week: params[:gathering][:day_of_week])
-        redirect_to gathering_path(@gathering)
+        if @gathering.update(gathering_params)
+            redirect_to gathering_path(@gathering)
+        else
+            render :edit
+        end
     end
 
     def destroy
-        Gathering.find_by_id(params[:id]).destroy
+        set_gathering
+        @gathering.destroy
         redirect_to gatherings_path
     end
 
