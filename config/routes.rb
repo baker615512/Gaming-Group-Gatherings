@@ -5,10 +5,11 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   get '/auth/:provider/callback' => 'sessions#omniauth'
+  get '/home', to: 'gamer#home'
   resources :gatherings
   resources :groups do
     resources :gatherings
   end
-  resources :gamers
+  resources :gamers, except: [:show]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

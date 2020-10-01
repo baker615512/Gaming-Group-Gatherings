@@ -8,13 +8,13 @@ class GamersController < ApplicationController
         @gamer = Gamer.new(gamer_params)
         if @gamer.save
             session[:gamer_id] = @gamer.id
-            redirect_to gamer_path(@gamer)
+            redirect_to home_path
         else
             render :new
         end
     end
     
-    def show
+    def home
         @gamer = current_user
     end
 
