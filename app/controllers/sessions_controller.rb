@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
   def create
     @gamer = Gamer.find_by(username: params[:gamer][:username])
     if @gamer && @gamer.authenticate(params[:gamer][:password])
-      redirect_to_gamer_path
+      login_and_redirect
     else
       redirect_to login_path
     end
@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
   def omniauth
     @gamer = Gamer.from_omniauth(auth)
     @gamer.save
-    redirect_to_gamer_path
+    login_and_redirect
   end
 
   private
@@ -31,8 +31,8 @@ class SessionsController < ApplicationController
     request.env['omniauth.auth']
   end
 
-  def redirect_to_gamer_path
+  def login_and_redirect
     session[:gamer_id] = @gamer.id
-    redirect_to gamer_path(@gamer)
+    redirect_to home_path
   end
 end
