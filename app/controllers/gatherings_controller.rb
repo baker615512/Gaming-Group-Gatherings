@@ -3,7 +3,7 @@ class GatheringsController < ApplicationController
 
     def index
         if params[:group_id]
-            @gatherings = Group.find_by_id (params[:group_id])
+            @gatherings = Group.find_by_id(params[:group_id]).gatherings
         else
             @gatherings = Gathering.all
         end
