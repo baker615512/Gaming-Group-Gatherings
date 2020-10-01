@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   get '/auth/:provider/callback' => 'sessions#omniauth'
-  get '/home', to: 'gamer#home'
+  get '/home', to: 'gamers#home'
   resources :gatherings
   resources :groups do
     resources :gatherings
