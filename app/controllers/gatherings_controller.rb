@@ -59,5 +59,6 @@ class GatheringsController < ApplicationController
 
     def set_gathering
         @gathering = Gathering.find_by_id(params[:id])
+        return head(:not_found) unless @gathering
     end
 end

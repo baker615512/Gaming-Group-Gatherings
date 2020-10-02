@@ -1,8 +1,12 @@
 <h1><%= @group.game_title %></h1>
-<h3><%= @group.game_category %></h3>
+<h2><%= @group.game_category %></h2>
+<h3>Gamers already in this group:</h3>
+<ul>
+<% @group.gamers.each do |group_gamers| %>
+    <h4><li><%= group_gamers.username %></li></h4>
+<% end %>
+</ul>
 <%= link_to "Edit Group", edit_group_path(@group) %>
-<br><br>
-<%= link_to "View Current Gatherings", group_gatherings_path(@group) %>
 <br><br>
 <%= link_to "Create Gathering", new_group_gathering_path(@group) %>
 <br><br>
