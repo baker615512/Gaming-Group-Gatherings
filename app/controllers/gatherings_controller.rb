@@ -1,5 +1,6 @@
 class GatheringsController < ApplicationController
     before_action :require_login
+    before_action :set_gathering, only: [:show, :edit, :update, :destroy]
 
     def index
         if params[:group_id]
@@ -24,15 +25,12 @@ class GatheringsController < ApplicationController
     end
 
     def show
-        set_gathering
     end
 
     def edit
-        set_gathering
     end
 
     def update
-        set_gathering
         if @gathering.update(gathering_params)
             redirect_to gathering_path(@gathering)
         else
@@ -41,7 +39,6 @@ class GatheringsController < ApplicationController
     end
 
     def destroy
-        set_gathering
         @gathering.destroy
         redirect_to gatherings_path
     end
