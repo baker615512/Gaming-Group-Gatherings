@@ -6,7 +6,7 @@ class GatheringsController < ApplicationController
         if params[:group_id]
             @gatherings = Group.find_by_id(params[:group_id]).gatherings
         else
-            @gatherings = Gathering.all
+            @gatherings = Gathering.order(:gamer_id)
         end
     end
 

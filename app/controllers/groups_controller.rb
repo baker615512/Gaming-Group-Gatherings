@@ -3,15 +3,15 @@ class GroupsController < ApplicationController
     before_action :set_group, only: [:show, :edit, :update, :destroy]
 
     def index
-        if params['Board Game']
-            @groups = Group.board_game
-        elsif params['Card Game']
-            @groups = Group.card_game
-        elsif params['RPG']
-            @groups = Group.rpg
-        else
-            @groups = Group.all
-        end
+        #if params['Board Game']
+        #    @groups = Group.board_game
+        #elsif params['Card Game']
+        #    @groups = Group.card_game
+        #elsif params['RPG']
+        #    @groups = Group.rpg
+        #else
+            @groups = Group.order(:game_title)
+        #end
     end
     
     def new
