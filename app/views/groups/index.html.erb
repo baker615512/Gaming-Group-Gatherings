@@ -5,3 +5,13 @@
     <%= group.game_category %></h3></li>
 <% end %>
 </ul>
+<h2>Filter Game Groups by Category</h2>
+<%= form_for(@groups, method: "get") do |f| %>
+    <%= f.label :game_category %>
+    <%= f.select :game_category, [
+        ['Board Game', 'Board Game'], 
+        ['Card Game', 'Card Game'], 
+        ['RPG', 'RPG']],  
+        include_blank: true %>
+    <%= f.submit 'Filter Groups' %>
+<% end %>

@@ -2,7 +2,15 @@ class GroupsController < ApplicationController
     before_action :require_login
 
     def index
-        @groups = Group.all
+        if params['Board Game']
+            @groups = Group.board_game
+        elsif params['Card Game']
+            @groups = Group.card_game
+        elsif params['RPG']
+            @groups = Group.rpg
+        else
+            @groups = Group.all
+        end
     end
     
     def new
