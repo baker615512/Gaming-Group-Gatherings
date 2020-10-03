@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
     before_action :require_login
+    before_action :set_group, only: [:show, :edit, :update, :destroy]
 
     def index
         if params['Board Game']
@@ -27,21 +28,17 @@ class GroupsController < ApplicationController
     end
 
     def show
-        set_group
     end
 
     def edit
-        set_group
     end
 
     def update
-        set_group
         @group.update(group_params)
         redirect_to group_path(@group)
     end
 
     def destroy
-        Group.find_by_id(params[:id]).destroy
         redirect_to groups_path
     end
 
