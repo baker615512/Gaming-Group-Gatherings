@@ -4,6 +4,9 @@ class GroupsController < ApplicationController
 
     def index
         @groups = Group.order(:game_title)
+        @groups = @groups.rpg(params[:game_category]['RPG']) if params[:game_category] && params[:game_category]['RPG']
+        @groups = @groups.board_games(params[:game_category]['Board Game']) if params[:game_category] && params[:game_category]['Board Game']
+        @groups = @groups.card_games(params[:game_category]['Card Game']) if params[:game_category] && params[:game_category]['Card Game']
     end
     
     def new

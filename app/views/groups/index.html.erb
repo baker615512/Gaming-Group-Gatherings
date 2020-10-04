@@ -1,4 +1,12 @@
-<h1>List of Current Game Groups</h1>
+<h1>List of Game Groups</h1>
+
+<%= form_tag('/groups', method: 'get') do %>
+    <%= label_tag(:game_category, 'Filter by category') %>
+    <%= select_tag(:game_category, 
+        "<option>Board Game</option><option>Card Game</option><option>RPG</option>", 
+        :include_blank => true) %>
+    <%= submit_tag('Filter') %>
+<% end %>
 <ul>
 <% @groups.each do |group| %>
     <li><h3><%= link_to group.game_title, group_path(group) %> - 
