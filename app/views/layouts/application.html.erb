@@ -10,13 +10,15 @@
   </head>
 
   <body>
-  <%= link_to 'Home', root_path %>
-  <%= link_to 'My Page', home_path %>
-  <%= link_to 'Gatherings', gatherings_path %>
-  <%= link_to 'Groups', groups_path %>
-  <%= link_to 'Logout', logout_path, method: 'delete' %>
-
-
+  <% if logged_in? %>
+    <%= link_to 'My Page', home_path %>
+    <%= link_to 'Gatherings', gatherings_path %>
+    <%= link_to 'Groups', groups_path %>
+    <%= link_to 'Logout', logout_path, method: 'delete' %>
+  <% else %>
+    <%= link_to 'Home', root_path %>
+  <% end %>
+  
     <%= yield %>
   </body>
 </html>
