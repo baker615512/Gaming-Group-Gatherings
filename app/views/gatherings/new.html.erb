@@ -4,11 +4,11 @@
 
 <%= form_for(@gathering) do |f| %>
     <%if @group%>
-        <h2>New Gathering for <%=@group.game_title%></h2>
-        <%=f.hidden_field :group_id, value: @group.id%>
+        <h2>New Gathering for <%= @group.game_title %></h2>
+        <%=f.hidden_field :group_id, value: @group.id %>
     <%else%>
         <h3>Select a Group</h3>
-        <%=f.label :group_id%>
+        <%= f.label :group_id %>
         <%= f.collection_select :group_id, Group.all, :id, :game_title, include_blank: true %>
     <% end %>
     <br><br>
@@ -28,6 +28,6 @@
         ['Thursday', 'Thursday'],
         ['Friday', 'Friday'],
         ['Saturday', 'Saturday']], 
-        :include_blank => true %><br><br>
+        include_blank: true %><br><br>
     <%= f.submit 'Create Gathering' %>
 <% end %>

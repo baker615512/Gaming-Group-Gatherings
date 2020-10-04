@@ -2,7 +2,7 @@
 
 <ol>
 <% @gamer.gatherings.each do |g| %>
-    <li><%= link_to "#{g.group.game_title} meets at #{g.game_cafe} on #{g.day_of_week}.", gathering_path %></li>
+    <li><%= g.group.game_title %> meets at <%= g.game_cafe %> on <%= g.day_of_week %>.</li>
 <% end %>
 </ol>
 
