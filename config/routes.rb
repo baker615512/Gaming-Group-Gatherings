@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   resources :groups do
     resources :gatherings
   end
-  resources :gamers, except: [:show]
+  resources :gamers, except: [:show, :edit, :update, :destroy]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
