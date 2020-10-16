@@ -6,6 +6,6 @@
     <h2>Edit Gathering for <%=@gathering.group.game_title%></h2>
     <%=f.hidden_field :gathering_group_id, value: @gathering.group.id%>
     <br><br>
-    <%= render partial 'form', locals: {f: f} %><br><br>
+    <%= render partial: 'form', locals: {f: f} %><br><br>
     <%= f.submit 'Edit Gathering' %>
 <% end %>
