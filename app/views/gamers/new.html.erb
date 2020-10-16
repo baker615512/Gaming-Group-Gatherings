@@ -3,9 +3,5 @@
 <%= render partial: 'layouts/errors', locals: {object: @gamer} %>
 
 <%= form_for(@gamer) do |f| %>
-    <%= f.label :username %>
-    <%= f.text_field :username %>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-    <%= f.submit 'Register' %>
+    <%= render 'form' %>
 <% end %>
