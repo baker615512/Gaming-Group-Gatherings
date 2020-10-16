@@ -1,6 +1,7 @@
 class GroupsController < ApplicationController
     before_action :require_login
     before_action :set_group, only: [:show, :edit, :update, :destroy]
+    before_action :allow_changes, only: [:update, :destroy]
 
     def index
         @groups = Group.order(:game_title)
@@ -54,5 +55,9 @@ class GroupsController < ApplicationController
     def set_group
         @group = Group.find_by_id(params[:id])
         return head(:not_found) unless @group
+    end
+
+    def allow_changes
+        return head(:forbidden) unless @gathering.gamer_id == current_user
     end
 end

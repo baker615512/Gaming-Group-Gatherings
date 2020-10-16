@@ -1,6 +1,7 @@
 class GatheringsController < ApplicationController
     before_action :require_login
     before_action :set_gathering, only: [:show, :edit, :update, :destroy]
+    before_action :allow_changes, only: [:update, :destroy]
 
     def index
         if params[:group_id]
@@ -57,5 +58,9 @@ class GatheringsController < ApplicationController
     def set_gathering
         @gathering = Gathering.find_by_id(params[:id])
         return head(:not_found) unless @gathering
+    end
+
+    def allow_changes
+        return head(:forbidden) unless @gathering.gamer_id == current_user
     end
 end
