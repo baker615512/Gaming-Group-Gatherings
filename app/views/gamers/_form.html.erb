@@ -1,5 +1,7 @@
-<%= f.label :username %>
-<%= f.text_field :username %>
-<%= f.label :password %>
-<%= f.password_field :password %>
-<%= f.submit 'Register' %>
+<%= form_for(@gamer) do |f| %>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <%= f.submit 'Register' %>
+<% end %>
