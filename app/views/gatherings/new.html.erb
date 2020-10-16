@@ -12,22 +12,6 @@
         <%= f.collection_select :group_id, Group.all, :id, :game_title, include_blank: true %>
     <% end %>
     <br><br>
-    <%= f.label :game_cafe, 'Which Cafe?' %>
-    <%= f.select :game_cafe, [
-        ['Vigilante', 'Vigilante'], 
-        ['Emerald Tavern', 'Emerald Tavern'], 
-        ['Dragons Lair', 'Dragons Lair'],
-        ['Gaming Goat', 'Gaming Goat']], 
-        :include_blank => true %><br><br>
-    <%= f.label :day_of_week, 'Which Day?' %>
-    <%= f.select :day_of_week, [
-        ['Sunday', 'Sunday'], 
-        ['Monday', 'Monday'], 
-        ['Tuesday', 'Tuesday'],
-        ['Wednesday', 'Wednesday'],
-        ['Thursday', 'Thursday'],
-        ['Friday', 'Friday'],
-        ['Saturday', 'Saturday']], 
-        include_blank: true %><br><br>
+    <%= render partial: 'form', locals: {f: f} %>
     <%= f.submit 'Create Gathering' %>
 <% end %>
